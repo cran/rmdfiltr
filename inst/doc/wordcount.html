@@ -7,12 +7,13 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Frederik Aust" />
 
-<meta name="date" content="2019-05-03" />
+<meta name="date" content="2019-12-09" />
 
 <title>Lua word count filter</title>
 
@@ -96,7 +97,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -303,7 +304,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Lua word count filter</h1>
 <h4 class="author">Frederik Aust</h4>
-<h4 class="date">2019-05-03</h4>
+<h4 class="date">2019-12-09</h4>
 
 
 
@@ -318,10 +319,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] &quot;--filter&quot;                                                       </span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;</span></a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">add_wordcount_filter</span>(<span class="kw">add_citeproc_filter</span>(<span class="dt">args =</span> <span class="ot">NULL</span>))</a></code></pre></div>
-<pre><code>#&gt; [1] &quot;--filter&quot;                                                                                                    
-#&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;                                             
-#&gt; [3] &quot;--lua-filter&quot;                                                                                                
-#&gt; [4] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/RtmpKp0C2a/Rinst24e86dd48981/rmdfiltr/wordcount.lua&quot;</code></pre>
+<pre><code>#&gt; [1] &quot;--filter&quot;                                                                                                   
+#&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;                                            
+#&gt; [3] &quot;--lua-filter&quot;                                                                                               
+#&gt; [4] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/Rtmp66pweT/Rinst4c73f75f4e0/rmdfiltr/wordcount.lua&quot;</code></pre>
 <p>When adding the filters to <code>pandoc_args</code> the R code needs to be preceded by <code>!expr</code> to declare it as to-be-interpreted expression.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">output:</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="fu">html_document:</span></a>
@@ -346,6 +347,9 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Stahl, C., &amp; Aust, F. (2018). Evaluative conditioning as memory-based judgment. Social Psychological Bulletin, 13(3), Article e28589. <a href="https://doi.org/10.5964/spb.v13i3.28589" class="uri">https://doi.org/10.5964/spb.v13i3.28589</a></p>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

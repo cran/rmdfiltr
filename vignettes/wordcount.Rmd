@@ -53,7 +53,7 @@ add_wordcount_filter(add_citeproc_filter(args = NULL))
 ```
 
 ```{r nested-filters, echo = FALSE}
-add_wordcount_filter(add_citeproc_filter(args = NULL, report = "silent"), report = "silent")
+add_wordcount_filter(add_citeproc_filter(args = NULL, error = FALSE), error = FALSE)
 ```
 
 When adding the filters to `pandoc_args` the R code needs to be preceded by `!expr` to declare it as to-be-interpreted expression.

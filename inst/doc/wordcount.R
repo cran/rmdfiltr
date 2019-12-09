@@ -17,7 +17,7 @@ add_citeproc_filter(args = NULL)
 #  add_wordcount_filter(add_citeproc_filter(args = NULL))
 
 ## ----nested-filters, echo = FALSE----------------------------------------
-add_wordcount_filter(add_citeproc_filter(args = NULL, report = "silent"), report = "silent")
+add_wordcount_filter(add_citeproc_filter(args = NULL, error = FALSE), error = FALSE)
 
 ## ----word-counts, warning = FALSE, fig.dim = c(6, 3.5), fig.align = "center", echo = FALSE----
 tribble(

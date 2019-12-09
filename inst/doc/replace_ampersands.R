@@ -15,5 +15,5 @@ add_citeproc_filter(args = NULL)
 #  add_replace_ampersands_filter(add_citeproc_filter(args = NULL))
 
 ## ----nested-filters, echo = FALSE----------------------------------------
-add_replace_ampersands_filter(add_citeproc_filter(args = NULL, report = "silent"), report = "silent")
+add_replace_ampersands_filter(add_citeproc_filter(args = NULL, error = FALSE), error = FALSE)
 

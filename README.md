@@ -69,8 +69,9 @@ details on how to create custom formats.
 # Contributions
 
 Contributions of new filters are welcome. Pleas refer to the
-[contributing guidelines](.github/CONTRIBUTING.md) before you start
-working or open a pull request. Also, please note that the `rmdfiltr`
-project is released with a [Contributor Code of
-Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project,
-you agree to abide by its terms.
+[contributing
+guidelines](https://github.com/crsh/rmdfiltr/blob/master/.github/CONTRIBUTING.md)
+before you start working or open a pull request. Also, please note that
+the `rmdfiltr` project is released with a [Contributor Code of
+Conduct](https://github.com/crsh/rmdfiltr/blob/master/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.

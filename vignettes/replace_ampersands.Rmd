@@ -49,7 +49,7 @@ add_replace_ampersands_filter(add_citeproc_filter(args = NULL))
 ```
 
 ```{r nested-filters, echo = FALSE}
-add_replace_ampersands_filter(add_citeproc_filter(args = NULL, report = "silent"), report = "silent")
+add_replace_ampersands_filter(add_citeproc_filter(args = NULL, error = FALSE), error = FALSE)
 ```
 
 When adding the filters to `pandoc_args` the R code needs to be preceded by `!expr` to declare it as to-be-interpreted expression.
