@@ -1,22 +1,26 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 library("tibble")
 library("dplyr")
 library("ggplot2")
 
-## ----single-filter-------------------------------------------------------
-library("rmdfiltr")
-add_citeproc_filter(args = NULL)
+## ----single-filter-display, eval = FALSE--------------------------------------
+#  library("rmdfiltr")
+#  add_citeproc_filter(args = NULL)
 
-## ----nested-filters-display, eval = FALSE--------------------------------
+## ----single-filter, echo = FALSE----------------------------------------------
+library("rmdfiltr")
+add_citeproc_filter(args = NULL, error = FALSE)
+
+## ----nested-filters-display, eval = FALSE-------------------------------------
 #  add_wordcount_filter(add_citeproc_filter(args = NULL))
 
-## ----nested-filters, echo = FALSE----------------------------------------
+## ----nested-filters, echo = FALSE---------------------------------------------
 add_wordcount_filter(add_citeproc_filter(args = NULL, error = FALSE), error = FALSE)
 
 ## ----word-counts, warning = FALSE, fig.dim = c(6, 3.5), fig.align = "center", echo = FALSE----

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -13,7 +12,7 @@
 
 <meta name="author" content="Frederik Aust" />
 
-<meta name="date" content="2019-12-09" />
+<meta name="date" content="2019-12-11" />
 
 <title>Lua word count filter</title>
 
@@ -304,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Lua word count filter</h1>
 <h4 class="author">Frederik Aust</h4>
-<h4 class="date">2019-12-09</h4>
+<h4 class="date">2019-12-11</h4>
 
 
 
@@ -315,18 +314,18 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">citeproc:</span><span class="at"> no</span></a></code></pre></div>
 <p>To manually apply <code>pandoc-citeproc</code> and subsequently the <code>rmdfiltr</code> word count filter add the <code>pandoc</code> arguments to the output format of your R Markdown document as <code>pandoc_args</code>. Each filter returns a vector of command line arguments; they take previous arguments as <code>args</code> and add to them. Hence, the calls to add filters can be nested:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;rmdfiltr&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">add_citeproc_filter</span>(<span class="dt">args =</span> <span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] &quot;--filter&quot;                                                       </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">add_wordcount_filter</span>(<span class="kw">add_citeproc_filter</span>(<span class="dt">args =</span> <span class="ot">NULL</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">add_citeproc_filter</span>(<span class="dt">args =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<pre><code>#&gt; [1] &quot;--filter&quot;                                                       
+#&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">add_wordcount_filter</span>(<span class="kw">add_citeproc_filter</span>(<span class="dt">args =</span> <span class="ot">NULL</span>))</a></code></pre></div>
 <pre><code>#&gt; [1] &quot;--filter&quot;                                                                                                   
 #&gt; [2] &quot;/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc&quot;                                            
 #&gt; [3] &quot;--lua-filter&quot;                                                                                               
-#&gt; [4] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/Rtmp66pweT/Rinst4c73f75f4e0/rmdfiltr/wordcount.lua&quot;</code></pre>
+#&gt; [4] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/Rtmpp9G8mG/Rinsta4a16c970fe/rmdfiltr/wordcount.lua&quot;</code></pre>
 <p>When adding the filters to <code>pandoc_args</code> the R code needs to be preceded by <code>!expr</code> to declare it as to-be-interpreted expression.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="fu">html_document:</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="fu">pandoc_args:</span><span class="at"> !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="fu">pandoc_args:</span><span class="at"> !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))</span></a></code></pre></div>
 <p>The word count filter reports the word counts in the console or the R Markdown tab in RStudio, respectively.</p>
 <pre><code>285 words in text body
 23 words in reference section</code></pre>

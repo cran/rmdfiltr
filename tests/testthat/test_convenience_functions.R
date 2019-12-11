@@ -11,6 +11,8 @@ test_that(
       , add_replace_ampersands_filter(error = FALSE)
     )
 
+    skip_on_cran()
+
     citeproc_path <- utils::getFromNamespace("pandoc_citeproc", "rmarkdown")
 
     expect_identical(

@@ -68,8 +68,12 @@ add_replace_ampersands_filter <- function(args = NULL, error = TRUE) {
 #' add_citeproc_filter(NULL, error = FALSE)
 
 add_citeproc_filter <- function(args = NULL, error = TRUE) {
-  citeproc_path <- utils::getFromNamespace("pandoc_citeproc", "rmarkdown")
-  add_custom_filter(args, filter_path = citeproc_path(), lua = FALSE, error = error)
+  if(rmarkdown::pandoc_available(error = error)) {
+    citeproc_path <- utils::getFromNamespace("pandoc_citeproc", "rmarkdown")
+    add_custom_filter(args, filter_path = citeproc_path(), lua = FALSE, error = error)
+  } else {
+    NULL
+  }
 }
 
 #' @rdname add_lua_filter
