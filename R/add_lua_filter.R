@@ -13,7 +13,8 @@
 #'
 #' @details The following Lua filters are available from \pkg{rmdfiltr}.
 #'   Convenience functions named after the filter are available
-#'   (e.g. \code{add_*_filter()}).
+#'   (e.g. \code{add_*_filter()}). For details, please also refer to the 
+#'   vignettes.
 #'
 #'   \describe{
 #'     \item{\code{replace_ampersands}}{Searches for citations added by
@@ -29,6 +30,14 @@
 #'       tables or images (or their captions). The filter reports the word count in
 #'       the console or the R Markdown tab in 'RStudio'. For details see
 #'       \code{vignette("wordcount", package = "rmdfiltr")}.}
+#'    \item{\code{charcount}}{Only the body of the text is counted. The 
+#'       character count for the text body does not contain, tables or images 
+#'       (or their captions), but includes spaces. The filter reports the  
+#'       character count in the console or the R Markdown tab in 'RStudio'.}
+#'    \item{\code{doi2cite}}{Searches for DOI-citation tags in the text, 
+#'       retrieves the bibliographic information from CrossRef, stores it in a
+#'       BibTeX file, and replaces the DOI-citation tags with the corresponding 
+#'       BibTeX keys. For details see \code{vignette("doi2cite", package = "rmdfiltr")}.}
 #'   }
 #'
 #' @export
@@ -56,10 +65,28 @@ add_wordcount_filter <- function(args = NULL, error = TRUE) {
 #' @rdname add_lua_filter
 #' @export
 #' @examples
+#' add_charcount_filter(NULL, error = FALSE)
+
+add_charcount_filter <- function(args = NULL, error = TRUE) {
+  add_lua_filter(args, "charcount", error = error)
+}
+
+#' @rdname add_lua_filter
+#' @export
+#' @examples
 #' add_replace_ampersands_filter(NULL, error = FALSE)
 
 add_replace_ampersands_filter <- function(args = NULL, error = TRUE) {
   add_lua_filter(args, "replace_ampersands", error = error)
+}
+
+#' @rdname add_lua_filter
+#' @export
+#' @examples
+#' add_doi2cite_filter(NULL, error = FALSE)
+
+add_doi2cite_filter <- function(args = NULL, error = TRUE) {
+  add_lua_filter(args, "doi2cite", error = error)
 }
 
 #' @rdname add_lua_filter

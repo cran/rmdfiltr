@@ -6,16 +6,15 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Travis build
-status](https://travis-ci.org/crsh/rmdfiltr.svg?branch=master)](https://travis-ci.org/crsh/rmdfiltr)
+status](https://travis-ci.org/crsh/rmdfiltr.svg?branch=master)](https://app.travis-ci.com/crsh/rmdfiltr)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rmdfiltr)](https://cran.r-project.org/package=rmdfiltr)
-\[![CRAN
-downloads](https://cranlogs.r-pkg.org/badges/last-month/rmdfiltr)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/last-month/rmdfiltr)
 <!-- badges: end -->
 
-`rmdfiltr` provides a collection of
+**rmdfiltr** provides a collection of
 [Lua-filters](https://pandoc.org/lua-filters.html) that extend the
 functionality of R Markdown templates.
 
@@ -23,8 +22,7 @@ functionality of R Markdown templates.
 
 <!--
 You can install the released version of rmdfiltr from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
+&#10;``` r
 install.packages("rmdfiltr")
 ```
 -->
@@ -66,12 +64,26 @@ See [R Markdown: The Definitive
 Guide](https://bookdown.org/yihui/rmarkdown/new-formats.html) for
 details on how to create custom formats.
 
+## Filters
+
+**rmdfiltr** currently provides the following filters:
+
+- `wordcount`: Prints the word count for the body of the document and
+  for the reference section to the console.
+- `charcount`: Prints the character count for the body of the document
+  to the console.
+- `replace_ampersands`: Replaces all ampersands in in-text citation with
+  `and` (or the equivalent in other languages).
+- [`doi2cite`](https://github.com/korintje/pandoc-doi2cite/blob/main/doi2cite.lua):
+  Generates `.bib` file from the DOIs in a document and convert the DOIs
+  into BibTeX citation keys.
+
 # Contributions
 
 Contributions of new filters are welcome. Pleas refer to the
 [contributing
 guidelines](https://github.com/crsh/rmdfiltr/blob/master/.github/CONTRIBUTING.md)
 before you start working or open a pull request. Also, please note that
-the `rmdfiltr` project is released with a [Contributor Code of
+the **rmdfiltr** project is released with a [Contributor Code of
 Conduct](https://github.com/crsh/rmdfiltr/blob/master/.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.

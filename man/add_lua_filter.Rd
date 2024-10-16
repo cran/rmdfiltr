@@ -3,7 +3,9 @@
 \name{add_lua_filter}
 \alias{add_lua_filter}
 \alias{add_wordcount_filter}
+\alias{add_charcount_filter}
 \alias{add_replace_ampersands_filter}
+\alias{add_doi2cite_filter}
 \alias{add_citeproc_filter}
 \alias{add_custom_filter}
 \title{Add filter to pandoc arguments}
@@ -12,12 +14,15 @@ add_lua_filter(args = NULL, filter_name, error = TRUE)
 
 add_wordcount_filter(args = NULL, error = TRUE)
 
+add_charcount_filter(args = NULL, error = TRUE)
+
 add_replace_ampersands_filter(args = NULL, error = TRUE)
+
+add_doi2cite_filter(args = NULL, error = TRUE)
 
 add_citeproc_filter(args = NULL, error = TRUE)
 
-add_custom_filter(args = NULL, filter_path, lua = FALSE,
-  error = TRUE)
+add_custom_filter(args = NULL, filter_path, lua = FALSE, error = TRUE)
 }
 \arguments{
 \item{args}{Character. (Vector of) pandoc command line arguments.}
@@ -39,7 +44,8 @@ Adds a filter call to the vector of pandoc command line arguments.
 \details{
 The following Lua filters are available from \pkg{rmdfiltr}.
   Convenience functions named after the filter are available
-  (e.g. \code{add_*_filter()}).
+  (e.g. \code{add_*_filter()}). For details, please also refer to the 
+  vignettes.
 
   \describe{
     \item{\code{replace_ampersands}}{Searches for citations added by
@@ -55,13 +61,23 @@ The following Lua filters are available from \pkg{rmdfiltr}.
       tables or images (or their captions). The filter reports the word count in
       the console or the R Markdown tab in 'RStudio'. For details see
       \code{vignette("wordcount", package = "rmdfiltr")}.}
+   \item{\code{charcount}}{Only the body of the text is counted. The 
+      character count for the text body does not contain, tables or images 
+      (or their captions), but includes spaces. The filter reports the  
+      character count in the console or the R Markdown tab in 'RStudio'.}
+   \item{\code{doi2cite}}{Searches for DOI-citation tags in the text, 
+      retrieves the bibliographic information from CrossRef, stores it in a
+      BibTeX file, and replaces the DOI-citation tags with the corresponding 
+      BibTeX keys. For details see \code{vignette("doi2cite", package = "rmdfiltr")}.}
   }
 }
 \examples{
 
 add_lua_filter(NULL, "wordcount", error = FALSE)
 add_wordcount_filter(NULL, error = FALSE)
+add_charcount_filter(NULL, error = FALSE)
 add_replace_ampersands_filter(NULL, error = FALSE)
+add_doi2cite_filter(NULL, error = FALSE)
 add_citeproc_filter(NULL, error = FALSE)
 add_custom_filter(NULL, filter_path = "foo/bar", error = FALSE)
 }
