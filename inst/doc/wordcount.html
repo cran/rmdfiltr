@@ -12,7 +12,7 @@
 
 <meta name="author" content="Frederik Aust" />
 
-<meta name="date" content="2024-10-16" />
+<meta name="date" content="2024-10-22" />
 
 <title>Lua word count filter</title>
 
@@ -340,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Lua word count filter</h1>
 <h4 class="author">Frederik Aust</h4>
-<h4 class="date">2024-10-16</h4>
+<h4 class="date">2024-10-22</h4>
 
 
 
@@ -376,7 +376,7 @@ them. Hence, the calls to add filters can be nested:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">add_wordcount_filter</span>(<span class="fu">add_citeproc_filter</span>(<span class="at">args =</span> <span class="cn">NULL</span>))</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;--citeproc&quot;                                                                                                   
 #&gt; [2] &quot;--lua-filter&quot;                                                                                                 
-#&gt; [3] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/RtmpdwwQYc/Rinst122e972934afa/rmdfiltr/wordcount.lua&quot;</code></pre>
+#&gt; [3] &quot;/private/var/folders/nv/mz4ffsbn045101ngdd_mx0th0000gn/T/RtmpUaG0vc/Rinst1019a4a86f794/rmdfiltr/wordcount.lua&quot;</code></pre>
 <p>When adding the filters to <code>pandoc_args</code> the R code needs
 to be preceded by <code>!expr</code> to declare it as to-be-interpreted
 expression.</p>

@@ -47,7 +47,7 @@ post_process_doi_citations <- function(input_file, bib) {
 
   entries <- entries[!is.na(entries) & !duplicated(entries)]
 
-  rmd <- gsub("\\.knit\\.md$", ".Rmd", rmd)
+  rmd <- gsub("\\.knit\\.md$", ".Rmd", input_file)
   if(!file.exists(rmd)) {
     rmd <- gsub("Rmd$", "rmd", rmd)
     if(!file.exists(rmd)) stop("Cannot locate source file at", rmd, "or", gsub("rmd$", "Rmd", rmd), ".")

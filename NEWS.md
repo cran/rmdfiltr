@@ -1,3 +1,7 @@
+# rmdfiltr 0.1.5
+
+* Fixes bug in `post_process_doi_citations()` due to incorrectly named object.
+
 # rmdfiltr 0.1.4
 
 * Adds character count filter.
